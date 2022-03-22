@@ -7,12 +7,16 @@ print('Welcome to Date Difference Calculator')
 
 print("Enter start date (DD/MM/YYYY): ")
 inputDate = input()
+
+# validate user input
 readInput(inputDate)
 inputDateArr = [ int(x) for x in inputDate.split('/')]
 print(inputDateArr)
 
 print("Enter end date (DD/MM/YYYY): ")
 inputDate = input()
+
+# validate user input
 readInput(inputDate)
 inputDateArr.extend([ int(x) for x in inputDate.split('/')])
 print(inputDateArr)

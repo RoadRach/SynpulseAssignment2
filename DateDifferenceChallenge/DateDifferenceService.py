@@ -1,13 +1,16 @@
 from DateDifferenceClass import DateDifferenceClass
 import re
 
+# number of days in a month according to its index
 monthDays = [31, 28, 31, 30, 31, 30,
              31, 31, 30, 31, 30, 31]
- 
+
+# function for calculating leap years
 def leapYearCalc(d):
     years = d.yyyy
     return int(years / 4) - int(years / 100) + int(years / 400)
- 
+
+# function for calculating the actual number of days between two different dates
 def diffCalculator(date1, date2):
  
     # count total number of days leading up to date1
@@ -36,7 +39,8 @@ def diffCalculator(date1, date2):
 
     else:
         return 0
- 
+
+# function for validating user input
 def readInput(inputDate):
   while True:
     if(re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate)):
