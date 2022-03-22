@@ -48,26 +48,12 @@ def diffCalculator(date1, date2):
  
 def readInput(inputDate):
   while True:
-    if re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate):
-      return inputDate
-    print('Invalid date format, please try again:')
+    # if re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate):
+    #   return inputDate
+    # print('Invalid date format, please try again:')
+    # inputDate = input()
 
-# Driver
-print('Welcome to Date Difference Calculator')
-
-print("Enter start date (DD/MM/YYYY): ")
-inputDate = input()
-readInput(inputDate)
-inputDateArr = [ int(x) for x in inputDate.split('/')]
-print(inputDateArr)
-
-print("Enter end date (DD/MM/YYYY): ")
-inputDate = input()
-readInput(inputDate)
-inputDateArr.extend([ int(x) for x in inputDate.split('/')])
-print(inputDateArr)
-
-date1 = DateDifferenceClass(inputDateArr[0], inputDateArr[1], inputDateArr[2])
-date2 = DateDifferenceClass(inputDateArr[3], inputDateArr[4], inputDateArr[5])
- 
-print(diffCalculator(date1, date2), "days")
+    if(re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate)):
+        return inputDate
+    else:
+        raise Exception('Invalid date format, please try again:')
