@@ -5,13 +5,7 @@ monthDays = [31, 28, 31, 30, 31, 30,
              31, 31, 30, 31, 30, 31]
  
 def leapYearCalc(d):
- 
     years = d.yyyy
- 
-    # Since algo count up to the date, just omit the leap year if the date is up to feb
-    # if (d.mm <= 2):
-    #     years -= 1
- 
     return int(years / 4) - int(years / 100) + int(years / 400)
  
 def diffCalculator(date1, date2):
@@ -23,7 +17,6 @@ def diffCalculator(date1, date2):
         n1 += monthDays[i]
 
     n1 += leapYearCalc(date1)
-    print(n1)
 
     # count total number of days leading up to date2
  
@@ -33,8 +26,6 @@ def diffCalculator(date1, date2):
         n2 += monthDays[i]
 
     n2 += leapYearCalc(date2)
-    print(n2)
-
     valDiff = n2 - n1
 
     if valDiff < 0:
@@ -48,11 +39,6 @@ def diffCalculator(date1, date2):
  
 def readInput(inputDate):
   while True:
-    # if re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate):
-    #   return inputDate
-    # print('Invalid date format, please try again:')
-    # inputDate = input()
-
     if(re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate)):
         return inputDate
     else:
