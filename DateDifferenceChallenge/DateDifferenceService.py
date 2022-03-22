@@ -1,9 +1,6 @@
-class Date:
-    def __init__(self, dd, mm, yyyy):
-        self.dd = dd
-        self.mm = mm
-        self.yyyy = yyyy
- 
+from DateDifferenceClass import DateDifferenceClass
+import re
+
 monthDays = [31, 28, 31, 30, 31, 30,
              31, 31, 30, 31, 30, 31]
  
@@ -37,8 +34,6 @@ def diffCalculator(date1, date2):
 
     n2 += leapYearCalc(date2)
     print(n2)
- 
-    # return abs(n2 - n1 - 1)
 
     valDiff = n2 - n1
 
@@ -51,22 +46,28 @@ def diffCalculator(date1, date2):
     else:
         return 0
  
- 
+def readInput(inputDate):
+  while True:
+    if re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate):
+      return inputDate
+    print('Invalid date format, please try again:')
+
 # Driver
 print('Welcome to Date Difference Calculator')
 
-print("Enter start date (DD/MM/YYY): ")
-inputDate = [ int(x) for x in input().split('/')]
-print(inputDate)
+print("Enter start date (DD/MM/YYYY): ")
+inputDate = input()
+readInput(inputDate)
+inputDateArr = [ int(x) for x in inputDate.split('/')]
+print(inputDateArr)
 
-print("Enter end date (DD/MM/YYY): ")
-inputDate.extend([ int(x) for x in input().split('/')])
-print(inputDate)
+print("Enter end date (DD/MM/YYYY): ")
+inputDate = input()
+readInput(inputDate)
+inputDateArr.extend([ int(x) for x in inputDate.split('/')])
+print(inputDateArr)
 
-date1 = Date(inputDate[0], inputDate[1], inputDate[2])
-date2 = Date(inputDate[3], inputDate[4], inputDate[5])
+date1 = DateDifferenceClass(inputDateArr[0], inputDateArr[1], inputDateArr[2])
+date2 = DateDifferenceClass(inputDateArr[3], inputDateArr[4], inputDateArr[5])
  
 print(diffCalculator(date1, date2), "days")
-
-### when start date is later, then n1 is 726470, n2 is 724490
-### when start date is earlier, then n1 is 724490, n2 is 726470
