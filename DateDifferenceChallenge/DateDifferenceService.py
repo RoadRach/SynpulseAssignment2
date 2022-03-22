@@ -26,6 +26,7 @@ def diffCalculator(date1, date2):
         n1 += monthDays[i]
 
     n1 += leapYearCalc(date1)
+    print(n1)
 
     # count total number of days leading up to date2
  
@@ -33,10 +34,22 @@ def diffCalculator(date1, date2):
 
     for i in range(0, date2.mm - 1):
         n2 += monthDays[i]
-        
+
     n2 += leapYearCalc(date2)
+    print(n2)
  
-    return abs(n2 - n1 - 1)
+    # return abs(n2 - n1 - 1)
+
+    valDiff = n2 - n1
+
+    if valDiff < 0:
+        return abs(valDiff +1)
+
+    elif valDiff > 0:
+        return (valDiff - 1)
+
+    else:
+        return 0
  
  
 # Driver
@@ -54,3 +67,6 @@ date1 = Date(inputDate[0], inputDate[1], inputDate[2])
 date2 = Date(inputDate[3], inputDate[4], inputDate[5])
  
 print(diffCalculator(date1, date2), "days")
+
+### when start date is later, then n1 is 726470, n2 is 724490
+### when start date is earlier, then n1 is 724490, n2 is 726470
