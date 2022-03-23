@@ -44,6 +44,16 @@ def diffCalculator(date1, date2):
 def readInput(inputDate):
   while True:
     if(re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate)):
-        return inputDate
+        inputDateTmp = [ int(x) for x in inputDate.split('/')]
+        print(inputDateTmp[0])
+        print(monthDays[inputDateTmp[1] - 1])
+
+        if inputDateTmp[0] <= monthDays[inputDateTmp[1] - 1]:
+            if (1901 <= inputDateTmp[2] <= 2999):
+                return inputDateTmp
+            else:
+                raise Exception('Invalid date format, please try again:')
+        else:
+            raise Exception('Invalid date format, please try again:')
     else:
         raise Exception('Invalid date format, please try again:')

@@ -8,17 +8,13 @@ print('Welcome to Date Difference Calculator')
 print("Enter start date (DD/MM/YYYY): ")
 inputDate = input()
 
-# validate user input
-readInput(inputDate)
-inputDateArr = [ int(x) for x in inputDate.split('/')]
+inputDateArr = readInput(inputDate)
 print(inputDateArr)
 
 print("Enter end date (DD/MM/YYYY): ")
 inputDate = input()
 
-# validate user input
-readInput(inputDate)
-inputDateArr.extend([ int(x) for x in inputDate.split('/')])
+inputDateArr.extend(readInput(inputDate))
 print(inputDateArr)
 
 date1 = DateDifferenceClass(inputDateArr[0], inputDateArr[1], inputDateArr[2])

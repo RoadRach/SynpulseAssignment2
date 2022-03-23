@@ -7,7 +7,22 @@ class UnitTest(unittest.TestCase):
     val1 = 'aa/bb/cccc'
     with self.assertRaises(Exception):
       readInput(val1)
-      
+
+  def test_WhenDayOfDateIsOutOfRange_then_ShouldThrowException(self):
+    val1 = '40/01/1999'
+    with self.assertRaises(Exception):
+      readInput(val1)
+
+  def test_WhenMonthOfDateIsOutOfRange_then_ShouldThrowException(self):
+    val1 = '04/99/1999'
+    with self.assertRaises(IndexError):
+      readInput(val1)
+
+  def test_WhenYearOfDateIsOutOfRange_then_ShouldThrowException(self):
+    val1 = '04/99/3001'
+    with self.assertRaises(Exception):
+      readInput(val1)
+
   def test_WhenBothStartAndEndDatesAreTheSame_then_ShouldReturn0(self):
     date1 = DateDifferenceClass(1, 1, 2021)
     date2 = DateDifferenceClass(1, 1, 2021)
