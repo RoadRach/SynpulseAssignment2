@@ -53,5 +53,15 @@ class UnitTest(unittest.TestCase):
     date2 = DateDifferenceClass(3, 8, 1983)
     self.assertEqual(diffCalculator(date1, date2), 1979)
 
+  def test_WhenStartDateIs03031904AndEndDate27021904_then_ShouldShow4days(self):
+    date1 = DateDifferenceClass(3, 3, 1904)
+    date2 = DateDifferenceClass(27, 2, 1904)
+    self.assertEqual(diffCalculator(date1, date2), 4)
+
+  def test_WhenStartDateIs03032021AndEndDate27022021_then_ShouldShow3days(self):
+    date1 = DateDifferenceClass(3, 3, 2021)
+    date2 = DateDifferenceClass(27, 2, 2021)
+    self.assertEqual(diffCalculator(date1, date2), 3)
+
 if __name__ == '__main__' :
   unittest.main()
