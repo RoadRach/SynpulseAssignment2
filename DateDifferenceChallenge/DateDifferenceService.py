@@ -7,25 +7,14 @@ monthDays = [31, 28, 31, 30, 31, 30,
 
 # function for calculating leap years
 def leapYearCalc(d):
-    # extract value of year from object
+    # extract value of valid years from object
     years = d.yyyy - 1900
 
-    # check if divisible by 100
-    if years/100 == 0:
-        if years/400 ==0:
-            if d.mm <= 2 and d.dd <=28:
-                years -= 1
+    # check if date exceeds leap date
+    if d.mm <= 2 and d.dd:
+        years -= 1
 
-    # check if divisible by 400
-    if years/100 != 0:
-        if d.mm <= 2 and d.dd:
-            years -= 1
-            
     # calculates the number of leap years that occured
-    print("Inside leap year calc: " , int(years / 4) - int(years / 100) + int(years / 400))
-    print(int(years / 4))
-    print(int(years / 100))
-    print(int(years / 400))
     return int(years / 4) - int(years / 100) + int(years / 400)
 
 # function for calculating the actual number of days between two different dates
@@ -39,7 +28,6 @@ def diffCalculator(date1, date2):
         n1 += monthDays[i]
 
     # add in extra days from leap years that happened leading up to date1
-    print("First leap year: " , leapYearCalc(date1))
     n1 += leapYearCalc(date1)
 
     # sum of days in the years and days of the particular month leading up to date2
@@ -50,7 +38,6 @@ def diffCalculator(date1, date2):
         n2 += monthDays[i]
 
     # add in extra days from leap years that happened leading up to date1
-    print("Second leap year: " , leapYearCalc(date2))
     n2 += leapYearCalc(date2)
 
     # get raw value of the differnece in days between date1 and date2
@@ -58,12 +45,10 @@ def diffCalculator(date1, date2):
 
     # if start date is later than end date
     if valDiff < 0:
-        print("Here")
         return abs(valDiff + 1)
 
     # if start date is earlier than end date
     elif valDiff > 0:
-        print("There")
         return (valDiff - 1)
 
     # if both dates are the same
