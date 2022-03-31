@@ -9,13 +9,20 @@ monthDays = [31, 28, 31, 30, 31, 30,
 def leapYearCalc(d):
     # extract value of valid years from object
     years = d.yyyy - 1900
+    print("Value of year: ")
+    print(years)
 
     # check if date exceeds leap date
-    if d.mm <= 2 and d.dd:
+    if d.mm <= 2:
+        print("Value of month: ")
+        print(d.mm)
         years -= 1
 
     # calculates the number of leap years that occured
-    return int(years / 4) - int(years / 100) + int(years / 400)
+    print("Inside leap year func: ")
+    print(int(years / 4) - int(years / 100) + int(years / 400))
+    print(int(years/4))
+    return int(years / 4)
 
 # function for calculating the actual number of days between two different dates
 def diffCalculator(date1, date2):
