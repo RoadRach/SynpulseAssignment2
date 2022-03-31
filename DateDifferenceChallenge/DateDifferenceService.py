@@ -9,19 +9,12 @@ monthDays = [31, 28, 31, 30, 31, 30,
 def leapYearCalc(d):
     # extract value of valid years from object
     years = d.yyyy - 1900
-    print("Value of year: ")
-    print(years)
 
     # check if date exceeds leap date
     if d.mm <= 2:
-        print("Value of month: ")
-        print(d.mm)
         years -= 1
 
     # calculates the number of leap years that occured
-    print("Inside leap year func: ")
-    print(int(years / 4) - int(years / 100) + int(years / 400))
-    print(int(years/4))
     return int(years / 4)
 
 # function for calculating the actual number of days between two different dates
@@ -67,8 +60,6 @@ def readInput(inputDate):
   while True:
     if(re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate)):
         inputDateTmp = [ int(x) for x in inputDate.split('/')]
-        print(inputDateTmp[0])
-        print(monthDays[inputDateTmp[1] - 1])
 
         if inputDateTmp[0] <= monthDays[inputDateTmp[1] - 1]:
             if (1901 <= inputDateTmp[2] <= 2999):
