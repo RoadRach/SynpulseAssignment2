@@ -4,7 +4,6 @@ from DateDifferenceService import readInput, diffCalculator
 
 # Driver
 print('Welcome to Date Difference Calculator')
-
 print("Enter start date (DD/MM/YYYY): ")
 # user to input start date
 inputDate = input()

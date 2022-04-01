@@ -61,7 +61,7 @@ def readInput(inputDate):
     if(re.match(r'[0-9]{2}/[0-9]{2}/[0-9]{4}$', inputDate)):
         inputDateTmp = [ int(x) for x in inputDate.split('/')]
 
-        if inputDateTmp[0] <= monthDays[inputDateTmp[1] - 1]:
+        if inputDateTmp[0] <= monthDays[inputDateTmp[1] - 1] or inputDateTmp[0] == 29 and inputDateTmp[1] == 2 and inputDateTmp[2]%4 ==0:
             if (1901 <= inputDateTmp[2] <= 2999):
                 return inputDateTmp
             else:
